@@ -31,6 +31,7 @@ export interface Database {
           preferred_locale?: "ar" | "en";
           created_at?: string;
         };
+        Relationships: [];
       };
       addresses: {
         Row: {
@@ -66,6 +67,7 @@ export interface Database {
           is_default?: boolean;
           created_at?: string;
         };
+        Relationships: [];
       };
       measurements: {
         Row: {
@@ -122,6 +124,7 @@ export interface Database {
           is_active?: boolean;
           created_at?: string;
         };
+        Relationships: [];
       };
       fabrics: {
         Row: {
@@ -163,6 +166,7 @@ export interface Database {
           sort_order?: number;
           created_at?: string;
         };
+        Relationships: [];
       };
       personalizations: {
         Row: {
@@ -201,6 +205,7 @@ export interface Database {
           is_active?: boolean;
           created_at?: string;
         };
+        Relationships: [];
       };
       orders: {
         Row: {
@@ -284,6 +289,7 @@ export interface Database {
           created_at?: string;
           updated_at?: string;
         };
+        Relationships: [];
       };
       order_events: {
         Row: {
@@ -307,6 +313,7 @@ export interface Database {
           note?: string | null;
           created_at?: string;
         };
+        Relationships: [];
       };
       home_visits: {
         Row: {
@@ -336,6 +343,7 @@ export interface Database {
           fee_paid?: boolean;
           created_at?: string;
         };
+        Relationships: [];
       };
       alteration_requests: {
         Row: {
@@ -359,6 +367,7 @@ export interface Database {
           status?: "submitted" | "in_progress" | "resolved";
           created_at?: string;
         };
+        Relationships: [];
       };
     };
     Views: Record<string, never>;
