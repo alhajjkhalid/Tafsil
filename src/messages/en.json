@@ -13,7 +13,13 @@
     "error": "An error occurred",
     "retry": "Retry",
     "sar": "SAR",
-    "free": "Free"
+    "free": "Free",
+    "notFoundTitle": "Page Not Found",
+    "notFoundMessage": "Sorry, we could not find the page you are looking for.",
+    "backToHome": "Back to Home",
+    "errorTitle": "Something Went Wrong",
+    "errorMessage": "We are sorry, an error occurred while loading this page. Please try again.",
+    "loadingMessage": "Loading..."
   },
   "nav": {
     "studio": "Studio",
