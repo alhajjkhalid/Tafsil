@@ -204,6 +204,14 @@
     "delivered": "تم التوصيل",
     "trackShipment": "تتبع الشحنة",
     "orderDetails": "تفاصيل الطلب",
+    "fabric": "القماش",
+    "personalization": "التفصيل",
+    "shoulder": "الكتف",
+    "chest": "الصدر",
+    "waist": "الخصر",
+    "thobeLength": "طول الثوب",
+    "total": "الإجمالي",
+    "cm": "سم",
     "backToOrders": "العودة للطلبات"
   },
   "profile": {

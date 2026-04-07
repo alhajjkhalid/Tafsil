@@ -204,6 +204,14 @@
     "delivered": "Delivered",
     "trackShipment": "Track Shipment",
     "orderDetails": "Order Details",
+    "fabric": "Fabric",
+    "personalization": "Personalization",
+    "shoulder": "Shoulder",
+    "chest": "Chest",
+    "waist": "Waist",
+    "thobeLength": "Thobe Length",
+    "total": "Total",
+    "cm": "cm",
     "backToOrders": "Back to Orders"
   },
   "profile": {
