@@ -30,12 +30,22 @@
     "choosePersonalization": "اختر التفصيل",
     "total": "الإجمالي",
     "next": "التالي",
+    "free": "مجاني",
     "economy": "اقتصادي",
     "mid": "متوسط",
     "premium": "فاخر",
+    "tierEconomy": "اقتصادي",
+    "tierMid": "متوسط",
+    "tierPremium": "فاخر",
     "standard": "أساسي",
     "enhanced": "مُحسَّن",
-    "fullCustom": "مخصص بالكامل"
+    "fullCustom": "مخصص بالكامل",
+    "levelStandard": "أساسي",
+    "levelEnhanced": "محسّن",
+    "levelFullCustom": "تفصيل كامل",
+    "selectFabricFirst": "اختر القماش أولاً",
+    "selectPersonalization": "اختر مستوى التفصيل",
+    "preview": "معاينة"
   },
   "measurement": {
     "title": "كيف تحب ناخذ مقاساتك؟",

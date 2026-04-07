@@ -30,12 +30,22 @@
     "choosePersonalization": "Choose Personalization",
     "total": "Total",
     "next": "Next",
+    "free": "Free",
     "economy": "Economy",
     "mid": "Mid-Range",
     "premium": "Premium",
+    "tierEconomy": "Economy",
+    "tierMid": "Mid-Range",
+    "tierPremium": "Premium",
     "standard": "Standard",
     "enhanced": "Enhanced",
-    "fullCustom": "Full Custom"
+    "fullCustom": "Full Custom",
+    "levelStandard": "Standard",
+    "levelEnhanced": "Enhanced",
+    "levelFullCustom": "Full Custom",
+    "selectFabricFirst": "Choose a fabric first",
+    "selectPersonalization": "Choose personalization level",
+    "preview": "Preview"
   },
   "measurement": {
     "title": "How would you like us to take your measurements?",
