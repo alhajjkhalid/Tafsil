@@ -91,7 +91,12 @@
     "generateLabel": "إنشاء بطاقة شحن",
     "extraDaysNotice": "+٢-٣ أيام إضافية على وقت التوصيل",
     "labelGenerated": "تم إنشاء بطاقة الشحن",
-    "waitingForThobe": "في انتظار استلام الثوب"
+    "waitingForThobe": "في انتظار استلام الثوب",
+    "aiTitle": "تقدير ذكي",
+    "resultsTitle": "مقاساتك المقدّرة",
+    "next": "التالي",
+    "previous": "السابق",
+    "step": "خطوة"
   },
   "order": {
     "summary": "ملخص الطلب",

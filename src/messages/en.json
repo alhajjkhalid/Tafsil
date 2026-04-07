@@ -91,7 +91,12 @@
     "generateLabel": "Generate Shipping Label",
     "extraDaysNotice": "+2-3 extra days added to delivery time",
     "labelGenerated": "Shipping label generated",
-    "waitingForThobe": "Waiting to receive thobe"
+    "waitingForThobe": "Waiting to receive thobe",
+    "aiTitle": "AI Estimation",
+    "resultsTitle": "Your Estimated Measurements",
+    "next": "Next",
+    "previous": "Previous",
+    "step": "Step"
   },
   "order": {
     "summary": "Order Summary",
