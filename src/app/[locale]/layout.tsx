@@ -2,6 +2,8 @@ import { NextIntlClientProvider } from "next-intl";
 import { getMessages, setRequestLocale } from "next-intl/server";
 import { notFound } from "next/navigation";
 import { routing } from "@/i18n/routing";
+import { Header } from "@/components/layout/header";
+import { BottomNav } from "@/components/layout/bottom-nav";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -42,7 +44,11 @@ export default async function LocaleLayout({ children, params }: Props) {
   return (
     <div dir={dir} lang={locale} className="min-h-screen">
       <NextIntlClientProvider messages={messages}>
-        {children}
+        <Header />
+        <main className="pt-16 pb-20 min-h-screen">
+          {children}
+        </main>
+        <BottomNav />
       </NextIntlClientProvider>
     </div>
   );
