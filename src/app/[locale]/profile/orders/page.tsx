@@ -109,15 +109,12 @@ export default function OrdersPage() {
               transition={{ delay: index * 0.1, duration: 0.3 }}
             >
               <Card
-                className="rounded-lg overflow-hidden cursor-pointer hover:shadow-md transition-shadow"
+                className={`rounded-lg overflow-hidden cursor-pointer hover:shadow-md transition-shadow border-s-4 ${
+                  order.tier === 'vip' ? 'border-gold' : 'border-navy/20'
+                }`}
                 onClick={() => router.push(`/tracking/${order.referenceNumber}`)}
               >
-                <div className="flex rtl:flex-row-reverse">
-                  <div
-                    className={`w-1 self-stretch flex-shrink-0 ${
-                      order.tier === 'vip' ? 'bg-gold' : 'bg-navy/20'
-                    }`}
-                  />
+                <div className="flex">
                   <div className="flex flex-col gap-2 p-4 flex-1">
                     <div className="flex items-center gap-2">
                       {order.tier === 'vip' && (
