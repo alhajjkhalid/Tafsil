@@ -31,7 +31,7 @@ export function ThobePreview({
   const showEmbroidery = level === 'full_custom';
 
   return (
-    <div className="sticky top-16 z-10 bg-gradient-to-b from-cream to-white flex items-center justify-center py-8">
+    <div className="sticky top-16 z-10 bg-gradient-to-b from-cream to-white flex items-center justify-center py-3">
       <AnimatePresence mode="wait">
         <motion.div
           key={`${tier}-${level}`}
@@ -42,8 +42,8 @@ export function ThobePreview({
           className="relative"
         >
           <svg
-            width="200"
-            height="320"
+            width="120"
+            height="192"
             viewBox="0 0 200 320"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
