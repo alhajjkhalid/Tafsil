@@ -8,6 +8,8 @@ import { LoadingSpinner } from '@/components/ui/loading-spinner';
 import { useAuthStore } from '@/lib/store/auth-store';
 import { createClient } from '@/lib/supabase/client';
 
+const supabase = createClient();
+
 export function PhoneAuth() {
   const t = useTranslations('order');
   const { isAuthenticated, profile } = useAuthStore();
@@ -26,7 +28,6 @@ export function PhoneAuth() {
     setLoading(true);
     setError('');
     try {
-      const supabase = createClient();
       const { error: supabaseError } = await supabase.auth.signInWithOtp({
         phone: `+966${phone}`,
       });
@@ -73,7 +74,6 @@ export function PhoneAuth() {
     setLoading(true);
     setError('');
     try {
-      const supabase = createClient();
       const { error: supabaseError } = await supabase.auth.verifyOtp({
         phone: `+966${phone}`,
         token: otpCode,
@@ -81,6 +81,8 @@ export function PhoneAuth() {
       });
       if (supabaseError) throw supabaseError;
       // AuthProvider's onAuthStateChange updates the store automatically
+      setPhone('');
+      setOtp(['', '', '', '', '', '']);
     } catch (err) {
       setError(err instanceof Error ? err.message : t('verifyOtpError'));
     } finally {
