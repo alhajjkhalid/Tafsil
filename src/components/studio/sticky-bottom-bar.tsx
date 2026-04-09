@@ -27,11 +27,12 @@ export function StickyBottomBar() {
   return (
     <div
       className={cn(
-        'fixed bottom-20 left-0 right-0 z-40',
+        'fixed left-0 right-0 z-40',
         'bg-white border-t border-cream-dark shadow-lg',
         'px-6 py-4',
         'flex justify-between items-center'
       )}
+      style={{ bottom: 'calc(4rem + env(safe-area-inset-bottom, 0px))' }}
     >
       <div className="flex flex-col">
         <span className="text-xs text-navy/50 font-arabic-body">
