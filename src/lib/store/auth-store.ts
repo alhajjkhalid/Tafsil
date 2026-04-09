@@ -1,6 +1,6 @@
-import { create } from "zustand";
-import type { User } from "@supabase/supabase-js";
-import type { Profile } from "@/lib/supabase/types";
+import { create } from 'zustand';
+import type { User } from '@supabase/supabase-js';
+import type { Profile } from '@/lib/supabase/types';
 
 interface AuthState {
   user: User | null;
@@ -13,7 +13,6 @@ interface AuthActions {
   setUser: (user: User | null) => void;
   setProfile: (profile: Profile | null) => void;
   signOut: () => void;
-  initialize: () => void;
 }
 
 const initialState: AuthState = {
@@ -42,6 +41,4 @@ export const useAuthStore = create<AuthState & AuthActions>((set) => ({
       isAuthenticated: false,
       isLoading: false,
     }),
-
-  initialize: () => set({ isLoading: true }),
 }));
