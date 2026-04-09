@@ -20,8 +20,8 @@ export function Header({ className }: HeaderProps) {
         className
       )}
     >
-      <LanguageToggle />
       <Logo size="sm" variant="gold" />
+      <LanguageToggle />
     </header>
   );
 }
