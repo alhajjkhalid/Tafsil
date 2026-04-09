@@ -112,36 +112,34 @@ export default function OrdersPage() {
                 className="rounded-lg overflow-hidden cursor-pointer hover:shadow-md transition-shadow"
                 onClick={() => router.push(`/tracking/${order.referenceNumber}`)}
               >
-                <div className="flex">
+                <div className="flex rtl:flex-row-reverse">
                   <div
-                    className={`w-1 ${
-                      order.tier === 'vip' ? 'bg-gold' : 'bg-navy'
+                    className={`w-1 self-stretch flex-shrink-0 ${
+                      order.tier === 'vip' ? 'bg-gold' : 'bg-navy/20'
                     }`}
                   />
                   <div className="flex flex-col gap-2 p-4 flex-1">
-                    <div className="flex items-center justify-between">
-                      <div className="flex items-center gap-2">
-                        <span className="text-navy font-bold">{order.fabricName}</span>
-                        {order.tier === 'vip' && (
-                          <span className="bg-gold text-navy text-xs font-bold px-2 py-0.5 rounded-full">
-                            VIP
-                          </span>
-                        )}
-                      </div>
+                    <div className="flex items-center gap-2">
+                      {order.tier === 'vip' && (
+                        <span className="bg-gold text-navy text-xs font-bold px-2 py-0.5 rounded-full">
+                          VIP
+                        </span>
+                      )}
+                      <span className="text-navy font-bold">{order.fabricName}</span>
                     </div>
 
                     <span className="text-navy/50 text-sm">{formattedDate}</span>
 
                     <div className="flex items-center justify-between">
+                      <span className="text-navy font-bold">
+                        {formatPrice(order.totalPrice)}
+                      </span>
                       <span
                         className={`text-xs font-medium px-2 py-0.5 rounded-full ${
                           statusColors[order.status] || 'bg-cream text-navy'
                         }`}
                       >
                         {statusLabels[order.status] || order.status}
-                      </span>
-                      <span className="text-navy font-bold">
-                        {formatPrice(order.totalPrice)}
                       </span>
                     </div>
 
