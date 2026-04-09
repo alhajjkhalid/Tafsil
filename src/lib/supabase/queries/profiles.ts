@@ -41,3 +41,37 @@ export async function updateProfile(
 
   return data;
 }
+
+export async function getOrCreateProfile(
+  userId: string,
+  phone: string
+): Promise<Profile> {
+  const supabase = createClient();
+
+  // Try to fetch existing profile first
+  const { data: existing, error: fetchError } = await supabase
+    .from("profiles")
+    .select("*")
+    .eq("id", userId)
+    .single();
+
+  if (existing) return existing;
+
+  // PGRST116 = "no rows" — expected for first-time users
+  if (fetchError && fetchError.code !== "PGRST116") {
+    throw new Error(`Failed to fetch profile: ${fetchError.message}`);
+  }
+
+  // Create profile for first-time user
+  const { data, error: insertError } = await supabase
+    .from("profiles")
+    .insert({ id: userId, phone })
+    .select()
+    .single();
+
+  if (insertError) {
+    throw new Error(`Failed to create profile: ${insertError.message}`);
+  }
+
+  return data;
+}
