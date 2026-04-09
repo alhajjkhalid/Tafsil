@@ -4,12 +4,13 @@ import { useState, useRef, useCallback } from 'react';
 import { useTranslations } from 'next-intl';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
-import { useAuthStore } from '@/lib/store/auth-store';
 import { LoadingSpinner } from '@/components/ui/loading-spinner';
+import { useAuthStore } from '@/lib/store/auth-store';
+import { createClient } from '@/lib/supabase/client';
 
 export function PhoneAuth() {
   const t = useTranslations('order');
-  const { isAuthenticated, profile, setUser, setProfile } = useAuthStore();
+  const { isAuthenticated, profile } = useAuthStore();
   const [phone, setPhone] = useState('');
   const [otpSent, setOtpSent] = useState(false);
   const [otp, setOtp] = useState<string[]>(['', '', '', '', '', '']);
@@ -25,11 +26,14 @@ export function PhoneAuth() {
     setLoading(true);
     setError('');
     try {
-      // Simulated OTP send
-      await new Promise((resolve) => setTimeout(resolve, 1000));
+      const supabase = createClient();
+      const { error: supabaseError } = await supabase.auth.signInWithOtp({
+        phone: `+966${phone}`,
+      });
+      if (supabaseError) throw supabaseError;
       setOtpSent(true);
-    } catch {
-      setError(t('sendOtpError'));
+    } catch (err) {
+      setError(err instanceof Error ? err.message : t('sendOtpError'));
     } finally {
       setLoading(false);
     }
@@ -37,9 +41,7 @@ export function PhoneAuth() {
 
   const handleOtpChange = useCallback(
     (index: number, value: string) => {
-      if (value.length > 1) {
-        value = value.slice(-1);
-      }
+      if (value.length > 1) value = value.slice(-1);
       if (value && !/^\d$/.test(value)) return;
 
       const newOtp = [...otp];
@@ -71,20 +73,16 @@ export function PhoneAuth() {
     setLoading(true);
     setError('');
     try {
-      // Simulated OTP verification
-      await new Promise((resolve) => setTimeout(resolve, 1000));
-      // Mock sign-in by setting a mock user
-      setUser({
-        id: `mock-${Date.now()}`,
+      const supabase = createClient();
+      const { error: supabaseError } = await supabase.auth.verifyOtp({
         phone: `+966${phone}`,
-      } as never);
-      setProfile({
-        id: `mock-${Date.now()}`,
-        full_name: t('defaultName'),
-        phone: `+966${phone}`,
-      } as never);
-    } catch {
-      setError(t('verifyOtpError'));
+        token: otpCode,
+        type: 'sms',
+      });
+      if (supabaseError) throw supabaseError;
+      // AuthProvider's onAuthStateChange updates the store automatically
+    } catch (err) {
+      setError(err instanceof Error ? err.message : t('verifyOtpError'));
     } finally {
       setLoading(false);
     }
@@ -96,7 +94,12 @@ export function PhoneAuth() {
         <div className="w-10 h-10 bg-gold/20 rounded-full flex items-center justify-center">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
             <circle cx="12" cy="8" r="4" stroke="#C9A84C" strokeWidth="2" />
-            <path d="M4 20c0-4 4-6 8-6s8 2 8 6" stroke="#C9A84C" strokeWidth="2" strokeLinecap="round" />
+            <path
+              d="M4 20c0-4 4-6 8-6s8 2 8 6"
+              stroke="#C9A84C"
+              strokeWidth="2"
+              strokeLinecap="round"
+            />
           </svg>
         </div>
         <div className="flex flex-col">
