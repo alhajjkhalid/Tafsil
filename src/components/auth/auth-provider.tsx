@@ -15,17 +15,20 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     // no need for a separate getSession() call.
     const {
       data: { subscription },
-    } = supabase.auth.onAuthStateChange(async (_event, session) => {
+    } = supabase.auth.onAuthStateChange(async (event, session) => {
       if (session?.user) {
         setUser(session.user);
-        try {
-          const profile = await getOrCreateProfile(
-            session.user.id,
-            session.user.phone ?? ''
-          );
-          setProfile(profile);
-        } catch (err) {
-          console.error('Failed to load profile:', err);
+        // Only fetch/create profile on initial load or new sign-in, not on token refresh
+        if (event === 'INITIAL_SESSION' || event === 'SIGNED_IN') {
+          try {
+            const profile = await getOrCreateProfile(
+              session.user.id,
+              session.user.phone ?? ''
+            );
+            setProfile(profile);
+          } catch (err) {
+            console.error('Failed to load profile:', err);
+          }
         }
       } else {
         signOut();

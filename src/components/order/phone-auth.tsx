@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useRef, useCallback } from 'react';
+import { useState, useRef, useCallback, useMemo } from 'react';
 import { useTranslations } from 'next-intl';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -8,9 +8,8 @@ import { LoadingSpinner } from '@/components/ui/loading-spinner';
 import { useAuthStore } from '@/lib/store/auth-store';
 import { createClient } from '@/lib/supabase/client';
 
-const supabase = createClient();
-
 export function PhoneAuth() {
+  const supabase = useMemo(() => createClient(), []);
   const t = useTranslations('order');
   const { isAuthenticated, profile } = useAuthStore();
   const [phone, setPhone] = useState('');
