@@ -19,7 +19,7 @@ function StudioIcon({ active }: { active: boolean }) {
       height="24"
       viewBox="0 0 24 24"
       fill="none"
-      stroke={active ? '#C9A84C' : '#E8E0D0'}
+      stroke={active ? '#C9A84C' : '#6B6B80'}
       strokeWidth="1.8"
       strokeLinecap="round"
       strokeLinejoin="round"
@@ -38,7 +38,7 @@ function OrdersIcon({ active }: { active: boolean }) {
       height="24"
       viewBox="0 0 24 24"
       fill="none"
-      stroke={active ? '#C9A84C' : '#E8E0D0'}
+      stroke={active ? '#C9A84C' : '#6B6B80'}
       strokeWidth="1.8"
       strokeLinecap="round"
       strokeLinejoin="round"
@@ -57,7 +57,7 @@ function ProfileIcon({ active }: { active: boolean }) {
       height="24"
       viewBox="0 0 24 24"
       fill="none"
-      stroke={active ? '#C9A84C' : '#E8E0D0'}
+      stroke={active ? '#C9A84C' : '#6B6B80'}
       strokeWidth="1.8"
       strokeLinecap="round"
       strokeLinejoin="round"
@@ -75,7 +75,7 @@ function MoreIcon({ active }: { active: boolean }) {
       height="24"
       viewBox="0 0 24 24"
       fill="none"
-      stroke={active ? '#C9A84C' : '#E8E0D0'}
+      stroke={active ? '#C9A84C' : '#6B6B80'}
       strokeWidth="1.8"
       strokeLinecap="round"
       strokeLinejoin="round"
@@ -154,14 +154,14 @@ export function BottomNav() {
               className={cn(
                 'flex flex-col items-center justify-center gap-1 flex-1 h-full',
                 'transition-colors duration-200',
-                active ? 'text-gold' : 'text-cream-dark'
+                active ? 'text-gold' : 'text-navy/40'
               )}
             >
               {tab.icon}
               <span
                 className={cn(
                   'text-[11px] font-arabic-body',
-                  active ? 'text-gold font-medium' : 'text-cream-dark'
+                  active ? 'text-gold font-medium' : 'text-navy/40'
                 )}
               >
                 {t(tab.key)}
