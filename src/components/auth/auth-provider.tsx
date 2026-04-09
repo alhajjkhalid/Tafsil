@@ -11,20 +11,8 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
   useEffect(() => {
     const supabase = createClient();
 
-    // Hydrate store from existing session on mount
-    supabase.auth.getSession().then(({ data: { session } }) => {
-      if (session?.user) {
-        setUser(session.user);
-        getOrCreateProfile(session.user.id, session.user.phone ?? '')
-          .then(setProfile)
-          .catch(console.error);
-      } else {
-        // No session — mark loading done
-        setUser(null);
-      }
-    });
-
-    // Keep store in sync with any auth state changes
+    // onAuthStateChange fires INITIAL_SESSION immediately on mount —
+    // no need for a separate getSession() call.
     const {
       data: { subscription },
     } = supabase.auth.onAuthStateChange(async (_event, session) => {
