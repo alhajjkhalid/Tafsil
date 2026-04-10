@@ -7,7 +7,6 @@ import {
   PersonalizationPicker,
   type Personalization,
 } from '@/components/studio/personalization-picker';
-import { ThobePreview } from '@/components/studio/thobe-preview';
 import { StickyBottomBar } from '@/components/studio/sticky-bottom-bar';
 import { createClient } from '@/lib/supabase/client';
 
@@ -197,7 +196,6 @@ export default function StudioPage() {
   return (
     <PageTransition>
       <div className="pb-28">
-        <ThobePreview />
         <FabricSelector fabrics={fabrics} />
         <PersonalizationPicker personalizations={personalizations} />
         <StickyBottomBar />
